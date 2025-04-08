@@ -1,5 +1,5 @@
 # path config:
-ckpt: ""
+ckpt: "" #"/home/brina/.cache/huggingface/hub/models--Vchitect--SEINE/snapshots/fd394e18671f986fd27eb64d827e01f6fd8e57ad/seine.pt"
 pretrained_model_path: "/home/brina/.cache/huggingface/hub/models--CompVis--stable-diffusion-v1-4/snapshots/133a221b8aa7292a167afc5127cb63fb5005638b/"
 data_path: "datasets/ucf101/UCF101/UCF-101-train"
 save_path: "checkpoints"
@@ -7,7 +7,7 @@ save_path: "checkpoints"
 # model config: 
 model: UNet
 num_frames: 16
-image_size: [240, 320]
+image_size: [48, 64] #[48, 64]
 # image_h: 240
 # image_w: 320
 
@@ -29,5 +29,5 @@ text_prompt: []
 additional_prompt: ", slow motion."
 negative_prompt: ""
 do_classifier_free_guidance: True
-mask_type: "first1"
+mask_type: "onelast3" #"first1"
 use_mask: True
