@@ -760,7 +760,7 @@ class GaussianDiffusion:
         output = th.where((t == 0), decoder_nll, kl)
         return {"output": output, "pred_xstart": out["pred_xstart"]}
 
-    def training_losses(self, model, x_start, t, model_kwargs=None, noise=None, use_mask=False):
+    def training_losses(self, model, x_start, t, model_kwargs=None, noise=None, use_mask=False, mask=None):
         """
         Compute training losses for a single timestep.
         :param model: the model to evaluate loss on.
@@ -777,9 +777,13 @@ class GaussianDiffusion:
         if noise is None:
             noise = th.randn_like(x_start)
         x_t = self.q_sample(x_start, t, noise=noise)
+        print(x_t.shape)
         if use_mask:
-            x_t = th.cat([x_t[:, :4], x_start[:, 4:]], dim=1)
+            # x_t = th.cat([x_t[:, :4], x_start[:, 4:]], dim=1)
+            x_t = th.concat([x_t, mask, x_start], dim=1) 
+            print(x_t.shape)
         terms = {}
+        print(self.loss_type)
 
         if self.loss_type == LossType.KL or self.loss_type == LossType.RESCALED_KL:
             terms["loss"] = self._vb_terms_bpd(

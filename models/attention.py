@@ -381,12 +381,31 @@ class Transformer3DModel(ModelMixin, ConfigMixin):
         if self.training:
             video_length = hidden_states.shape[2] - use_image_num
             hidden_states = rearrange(hidden_states, "b c f h w -> (b f) c h w").contiguous()
+            print(f"hidden size: {hidden_states.shape}")
             encoder_hidden_states_length = encoder_hidden_states.shape[1]
+            print(f"hidden length: {encoder_hidden_states_length}")
+            
+            # original
+            # encoder_hidden_states_video = encoder_hidden_states[:, encoder_hidden_states_length - use_image_num, ...]
+            # modified
             encoder_hidden_states_video = encoder_hidden_states[:, :encoder_hidden_states_length - use_image_num, ...]
+            print(f"hidden vid: {encoder_hidden_states_video.shape}")
+
+            # added!
+            encoder_hidden_states_video = encoder_hidden_states_video.unsqueeze(1)
+
             encoder_hidden_states_video = repeat(encoder_hidden_states_video, 'b m n c -> b (m f) n c', f=video_length).contiguous()
-            encoder_hidden_states_image = encoder_hidden_states[:, encoder_hidden_states_length - use_image_num:, ...]
+            print(f"new hidden vid: {encoder_hidden_states_video.shape}")
+            encoder_hidden_states_image = encoder_hidden_states[:, :encoder_hidden_states_length - use_image_num:, ...]
+            print(f"hidden img: {encoder_hidden_states_image.shape}")
+
+            # added!
+            encoder_hidden_states_image = encoder_hidden_states_image.unsqueeze(1)
+
             encoder_hidden_states = torch.cat([encoder_hidden_states_video, encoder_hidden_states_image], dim=1)
             encoder_hidden_states = rearrange(encoder_hidden_states, 'b m n c -> (b m) n c').contiguous()
+            print(f"final hidden: {encoder_hidden_states.shape}")
+
         else:
             video_length = hidden_states.shape[2]
             hidden_states = rearrange(hidden_states, "b c f h w -> (b f) c h w").contiguous()
