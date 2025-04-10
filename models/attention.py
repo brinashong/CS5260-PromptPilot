@@ -198,6 +198,7 @@ class CrossAttention(nn.Module):
 
         # attention, what we cannot get enough of
         if self._use_memory_efficient_attention_xformers:
+#            import ipdb; ipdb.set_trace()
             hidden_states = self._memory_efficient_attention_xformers(query, key, value, attention_mask)
             # Some versions of xformers return output in fp32, cast it back to the dtype of the input
             hidden_states = hidden_states.to(query.dtype)
@@ -306,6 +307,10 @@ class CrossAttention(nn.Module):
         query = query.contiguous()
         key = key.contiguous()
         value = value.contiguous()
+        print(f"query shape: {query.shape}")
+        print(f"key shape: {key.shape}")
+        print(f"value shape: {value.shape}")
+#        import ipdb; ipdb.set_trace()
         hidden_states = xformers.ops.memory_efficient_attention(query, key, value, attn_bias=attention_mask)
         hidden_states = self.reshape_batch_dim_to_heads(hidden_states)
         return hidden_states
@@ -383,28 +388,37 @@ class Transformer3DModel(ModelMixin, ConfigMixin):
             hidden_states = rearrange(hidden_states, "b c f h w -> (b f) c h w").contiguous()
             print(f"hidden size: {hidden_states.shape}")
             encoder_hidden_states_length = encoder_hidden_states.shape[1]
-            print(f"hidden length: {encoder_hidden_states_length}")
-            
-            # original
-            # encoder_hidden_states_video = encoder_hidden_states[:, encoder_hidden_states_length - use_image_num, ...]
-            # modified
             encoder_hidden_states_video = encoder_hidden_states[:, :encoder_hidden_states_length - use_image_num, ...]
             print(f"hidden vid: {encoder_hidden_states_video.shape}")
-
             # added!
-            encoder_hidden_states_video = encoder_hidden_states_video.unsqueeze(1)
-
+            encoder_hidden_states_video = encoder_hidden_states_video.unsqueeze(2)
             encoder_hidden_states_video = repeat(encoder_hidden_states_video, 'b m n c -> b (m f) n c', f=video_length).contiguous()
             print(f"new hidden vid: {encoder_hidden_states_video.shape}")
-            encoder_hidden_states_image = encoder_hidden_states[:, :encoder_hidden_states_length - use_image_num:, ...]
+            encoder_hidden_states_image = encoder_hidden_states[:, encoder_hidden_states_length - use_image_num:, ...]
             print(f"hidden img: {encoder_hidden_states_image.shape}")
-
-            # added!
-            encoder_hidden_states_image = encoder_hidden_states_image.unsqueeze(1)
-
+            encoder_hidden_states_image = encoder_hidden_states_image.unsqueeze(2)  # Add same dimension to match video tensor
             encoder_hidden_states = torch.cat([encoder_hidden_states_video, encoder_hidden_states_image], dim=1)
             encoder_hidden_states = rearrange(encoder_hidden_states, 'b m n c -> (b m) n c').contiguous()
-            print(f"final hidden: {encoder_hidden_states.shape}")
+            # video_length = hidden_states.shape[2] - use_image_num
+            # hidden_states = rearrange(hidden_states, "b c f h w -> (b f) c h w").contiguous()
+            # encoder_hidden_states_length = encoder_hidden_states.shape[1]
+            # print(f"hidden length: {encoder_hidden_states_length}")
+            
+            # # original
+            # # encoder_hidden_states_video = encoder_hidden_states[:, encoder_hidden_states_length - use_image_num, ...]
+            # # modified
+            # encoder_hidden_states_video = encoder_hidden_states[:, :encoder_hidden_states_length - use_image_num, ...]
+
+
+            # encoder_hidden_states_video = repeat(encoder_hidden_states_video, 'b m n c -> b (m f) n c', f=video_length).contiguous()
+            # encoder_hidden_states_image = encoder_hidden_states[:, :encoder_hidden_states_length - use_image_num:, ...]
+
+            # # added!
+            # # encoder_hidden_states_image = encoder_hidden_states_image.unsqueeze(1)
+
+            # encoder_hidden_states = torch.cat([encoder_hidden_states_video, encoder_hidden_states_image], dim=1)
+            # encoder_hidden_states = rearrange(encoder_hidden_states, 'b m n c -> (b m) n c').contiguous()
+            # print(f"final hidden: {encoder_hidden_states.shape}")
 
         else:
             video_length = hidden_states.shape[2]
@@ -426,6 +440,8 @@ class Transformer3DModel(ModelMixin, ConfigMixin):
 
         # Blocks
         for block in self.transformer_blocks:
+            print(f"hidden states input to block: {hidden_states.shape}")
+            print(f"encoder hidden input to block: {encoder_hidden_states.shape}")
             hidden_states = block(
                 hidden_states,
                 encoder_hidden_states=encoder_hidden_states,
