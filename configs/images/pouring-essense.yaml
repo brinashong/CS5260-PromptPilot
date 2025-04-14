@@ -1,0 +1,5 @@
+input_path: "dataset/essence_is_poured_from_a_bottle.png"
+save_path: "./results/essense"
+
+text_prompt: [A bottle of essence is being poured into a container, with the liquid flowing smoothly and steadily, creating a sense of movement and fluidity.]
+negative_prompt: ""
