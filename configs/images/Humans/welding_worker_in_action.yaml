@@ -1,0 +1,4 @@
+input_path: dataset/Humans/welding_worker_in_action.png
+negative_prompt: ''
+save_path: ./results/Humans/welding_worker_in_action
+text_prompt: []

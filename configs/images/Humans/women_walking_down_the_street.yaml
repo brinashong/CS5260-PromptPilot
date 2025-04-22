@@ -1,0 +1,4 @@
+input_path: dataset/Humans/women_walking_down_the_street.png
+negative_prompt: ''
+save_path: ./results/Humans/women_walking_down_the_street
+text_prompt: []

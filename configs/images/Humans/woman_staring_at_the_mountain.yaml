@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_staring_at_the_mountain.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_staring_at_the_mountain
+text_prompt: []

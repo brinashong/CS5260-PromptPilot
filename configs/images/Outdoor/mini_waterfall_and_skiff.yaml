@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/mini_waterfall_and_skiff.png
+negative_prompt: ''
+save_path: ./results/Outdoor/mini_waterfall_and_skiff
+text_prompt: []

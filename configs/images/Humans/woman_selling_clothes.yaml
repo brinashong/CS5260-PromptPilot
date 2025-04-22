@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_selling_clothes.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_selling_clothes
+text_prompt: []

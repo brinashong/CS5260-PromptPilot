@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/waterfall_and_moving_streams.png
+negative_prompt: ''
+save_path: ./results/Outdoor/waterfall_and_moving_streams
+text_prompt: []

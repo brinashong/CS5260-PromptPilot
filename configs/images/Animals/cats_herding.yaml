@@ -1,0 +1,4 @@
+input_path: dataset/Animals/cats_herding.png
+negative_prompt: ''
+save_path: ./results/Animals/cats_herding
+text_prompt: []

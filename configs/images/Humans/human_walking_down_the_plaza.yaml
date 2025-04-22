@@ -1,0 +1,4 @@
+input_path: dataset/Humans/human_walking_down_the_plaza.png
+negative_prompt: ''
+save_path: ./results/Humans/human_walking_down_the_plaza
+text_prompt: []

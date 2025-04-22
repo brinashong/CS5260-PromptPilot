@@ -1,0 +1,4 @@
+input_path: dataset/Animals/bee_flapping_wings.png
+negative_prompt: ''
+save_path: ./results/Animals/bee_flapping_wings
+text_prompt: [A bee flapping its wings in a smooth, continuous motion, with the wings moving up and down in a rhythmic pattern, creating a sense of fluidity and realism.]

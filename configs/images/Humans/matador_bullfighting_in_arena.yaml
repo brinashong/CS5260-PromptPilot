@@ -1,0 +1,4 @@
+input_path: dataset/Humans/matador_bullfighting_in_arena.png
+negative_prompt: ''
+save_path: ./results/Humans/matador_bullfighting_in_arena
+text_prompt: []

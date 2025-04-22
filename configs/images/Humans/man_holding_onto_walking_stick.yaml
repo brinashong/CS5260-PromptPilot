@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_holding_onto_walking_stick.png
+negative_prompt: ''
+save_path: ./results/Humans/man_holding_onto_walking_stick
+text_prompt: []

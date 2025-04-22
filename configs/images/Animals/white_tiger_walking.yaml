@@ -1,0 +1,4 @@
+input_path: dataset/Animals/white_tiger_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/white_tiger_walking
+text_prompt: [A white tiger walking through a grassy field, with its tail swishing and ears perked up, as it moves towards the camera.]

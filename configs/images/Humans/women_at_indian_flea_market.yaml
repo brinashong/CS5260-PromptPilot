@@ -1,0 +1,4 @@
+input_path: dataset/Humans/women_at_indian_flea_market.png
+negative_prompt: ''
+save_path: ./results/Humans/women_at_indian_flea_market
+text_prompt: []

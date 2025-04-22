@@ -1,0 +1,4 @@
+input_path: dataset/Animals/leopard_eating_prey.png
+negative_prompt: ''
+save_path: ./results/Animals/leopard_eating_prey
+text_prompt: []

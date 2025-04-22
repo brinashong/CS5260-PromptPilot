@@ -1,0 +1,4 @@
+input_path: dataset/Humans/hikers_pose_in_front_of_mountain.png
+negative_prompt: ''
+save_path: ./results/Humans/hikers_pose_in_front_of_mountain
+text_prompt: []

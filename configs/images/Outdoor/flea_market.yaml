@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/flea_market.png
+negative_prompt: ''
+save_path: ./results/Outdoor/flea_market
+text_prompt: []

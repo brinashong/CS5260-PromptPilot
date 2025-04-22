@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/skiff_on_river.png
+negative_prompt: ''
+save_path: ./results/Outdoor/skiff_on_river
+text_prompt: []

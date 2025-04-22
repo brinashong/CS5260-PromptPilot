@@ -1,0 +1,4 @@
+input_path: dataset/Animals/jellyfish_in_the_sea(1).png
+negative_prompt: ''
+save_path: ./results/Animals/jellyfish_in_the_sea(1)
+text_prompt: [A school of jellyfish swimming in the ocean, their translucent bodies glowing in the sunlight as they pulse through the water.]

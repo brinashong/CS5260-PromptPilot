@@ -1,0 +1,4 @@
+input_path: dataset/Humans/hiker_looks_back_from_valley.png
+negative_prompt: ''
+save_path: ./results/Humans/hiker_looks_back_from_valley
+text_prompt: []

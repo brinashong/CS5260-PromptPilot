@@ -1,0 +1,4 @@
+input_path: dataset/Animals/tortoise_walking_slowly.png
+negative_prompt: ''
+save_path: ./results/Animals/tortoise_walking_slowly
+text_prompt: [A tortoise walking slowly on the grass, with its head and legs moving in a slow and deliberate motion, as if it is taking its time to explore its surroundings.]

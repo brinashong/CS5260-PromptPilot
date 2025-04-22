@@ -1,0 +1,4 @@
+input_path: dataset/Humans/explorer_man_staring_sky.png
+negative_prompt: ''
+save_path: ./results/Humans/explorer_man_staring_sky
+text_prompt: []

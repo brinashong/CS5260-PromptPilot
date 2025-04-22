@@ -1,0 +1,4 @@
+input_path: dataset/Animals/squirrel_holding_onto_branch.png
+negative_prompt: ''
+save_path: ./results/Animals/squirrel_holding_onto_branch
+text_prompt: [A squirrel grasping a branch with its front paws, its bushy tail flicking back and forth as it moves along the branch, its eyes scanning the surroundings for potential threats or food sources.]

@@ -1,0 +1,4 @@
+input_path: dataset/Humans/villager_carrying_loads_and_walk.png
+negative_prompt: ''
+save_path: ./results/Humans/villager_carrying_loads_and_walk
+text_prompt: []

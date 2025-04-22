@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_posed_in_traditional_dress.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_posed_in_traditional_dress
+text_prompt: []

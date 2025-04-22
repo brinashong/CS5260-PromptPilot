@@ -1,0 +1,4 @@
+input_path: dataset/Animals/rat_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/rat_walking
+text_prompt: [A rat walking on a dirt path, with its tail swishing back and forth as it moves.]

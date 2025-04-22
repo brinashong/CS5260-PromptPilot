@@ -1,0 +1,4 @@
+input_path: dataset/Animals/dogs_noses_touching.png
+negative_prompt: ''
+save_path: ./results/Animals/dogs_noses_touching
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Humans/athletes_riding_tricycle.png
+negative_prompt: ''
+save_path: ./results/Humans/athletes_riding_tricycle
+text_prompt: []

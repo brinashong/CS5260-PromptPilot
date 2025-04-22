@@ -1,0 +1,4 @@
+input_path: dataset/Animals/ox_walking_behind_fence.png
+negative_prompt: ''
+save_path: ./results/Animals/ox_walking_behind_fence
+text_prompt: []

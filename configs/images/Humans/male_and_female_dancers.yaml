@@ -1,0 +1,4 @@
+input_path: dataset/Humans/male_and_female_dancers.png
+negative_prompt: ''
+save_path: ./results/Humans/male_and_female_dancers
+text_prompt: []

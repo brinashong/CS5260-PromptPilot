@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/car_moving_on_road.png
+negative_prompt: ''
+save_path: ./results/Outdoor/car_moving_on_road
+text_prompt: []

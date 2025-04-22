@@ -1,0 +1,4 @@
+input_path: dataset/Animals/crocodile_eating_fish.png
+negative_prompt: ''
+save_path: ./results/Animals/crocodile_eating_fish
+text_prompt: []

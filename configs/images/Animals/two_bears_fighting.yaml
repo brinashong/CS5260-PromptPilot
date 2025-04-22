@@ -1,0 +1,4 @@
+input_path: dataset/Animals/two_bears_fighting.png
+negative_prompt: ''
+save_path: ./results/Animals/two_bears_fighting
+text_prompt: []

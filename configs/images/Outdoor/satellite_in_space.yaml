@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/satellite_in_space.png
+negative_prompt: ''
+save_path: ./results/Outdoor/satellite_in_space
+text_prompt: []

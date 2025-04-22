@@ -1,0 +1,4 @@
+input_path: dataset/Humans/kids_playing_with_dog.png
+negative_prompt: ''
+save_path: ./results/Humans/kids_playing_with_dog
+text_prompt: []

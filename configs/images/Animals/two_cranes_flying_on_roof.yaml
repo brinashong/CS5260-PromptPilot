@@ -1,0 +1,4 @@
+input_path: dataset/Animals/two_cranes_flying_on_roof.png
+negative_prompt: ''
+save_path: ./results/Animals/two_cranes_flying_on_roof
+text_prompt: []

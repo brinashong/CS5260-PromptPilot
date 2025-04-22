@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/coconut_tree_swaying_by_the_beach.png
+negative_prompt: ''
+save_path: ./results/Outdoor/coconut_tree_swaying_by_the_beach
+text_prompt: []

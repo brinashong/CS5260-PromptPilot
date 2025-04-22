@@ -1,0 +1,4 @@
+input_path: dataset/Humans/officers_on_ship.png
+negative_prompt: ''
+save_path: ./results/Humans/officers_on_ship
+text_prompt: []

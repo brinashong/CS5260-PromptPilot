@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/city_monorail.png
+negative_prompt: ''
+save_path: ./results/Outdoor/city_monorail
+text_prompt: []

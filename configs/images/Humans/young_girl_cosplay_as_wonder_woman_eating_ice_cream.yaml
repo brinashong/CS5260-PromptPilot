@@ -1,0 +1,4 @@
+input_path: dataset/Humans/young_girl_cosplay_as_wonder_woman_eating_ice_cream.png
+negative_prompt: ''
+save_path: ./results/Humans/young_girl_cosplay_as_wonder_woman_eating_ice_cream
+text_prompt: []

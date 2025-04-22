@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/tiny_crafts_along_river.png
+negative_prompt: ''
+save_path: ./results/Outdoor/tiny_crafts_along_river
+text_prompt: []

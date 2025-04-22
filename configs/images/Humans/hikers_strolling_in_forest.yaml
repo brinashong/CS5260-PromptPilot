@@ -1,0 +1,4 @@
+input_path: dataset/Humans/hikers_strolling_in_forest.png
+negative_prompt: ''
+save_path: ./results/Humans/hikers_strolling_in_forest
+text_prompt: []

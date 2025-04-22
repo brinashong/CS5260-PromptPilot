@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/moving_bullet_train.png
+negative_prompt: ''
+save_path: ./results/Outdoor/moving_bullet_train
+text_prompt: []

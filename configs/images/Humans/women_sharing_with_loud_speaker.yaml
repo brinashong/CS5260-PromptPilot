@@ -1,0 +1,4 @@
+input_path: dataset/Humans/women_sharing_with_loud_speaker.png
+negative_prompt: ''
+save_path: ./results/Humans/women_sharing_with_loud_speaker
+text_prompt: []

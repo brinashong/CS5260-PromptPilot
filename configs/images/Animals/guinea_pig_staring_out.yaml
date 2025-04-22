@@ -1,0 +1,4 @@
+input_path: dataset/Animals/guinea_pig_staring_out.png
+negative_prompt: ''
+save_path: ./results/Animals/guinea_pig_staring_out
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Humans/tourists_getting_down_a_boat.png
+negative_prompt: ''
+save_path: ./results/Humans/tourists_getting_down_a_boat
+text_prompt: []

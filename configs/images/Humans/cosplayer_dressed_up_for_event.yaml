@@ -1,0 +1,4 @@
+input_path: dataset/Humans/cosplayer_dressed_up_for_event.png
+negative_prompt: ''
+save_path: ./results/Humans/cosplayer_dressed_up_for_event
+text_prompt: []

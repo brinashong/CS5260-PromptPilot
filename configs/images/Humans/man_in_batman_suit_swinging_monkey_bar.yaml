@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_in_batman_suit_swinging_monkey_bar.png
+negative_prompt: ''
+save_path: ./results/Humans/man_in_batman_suit_swinging_monkey_bar
+text_prompt: []

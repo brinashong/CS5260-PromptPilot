@@ -1,0 +1,4 @@
+input_path: dataset/Animals/white_tiger_climbing_tree.png
+negative_prompt: ''
+save_path: ./results/Animals/white_tiger_climbing_tree
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/plane_flying_in_sky.png
+negative_prompt: ''
+save_path: ./results/Outdoor/plane_flying_in_sky
+text_prompt: []

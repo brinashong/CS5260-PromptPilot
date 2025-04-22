@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_posing_in_front_of_clock.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_posing_in_front_of_clock
+text_prompt: []

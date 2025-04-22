@@ -1,0 +1,4 @@
+input_path: dataset/Humans/indian_ascetic.png
+negative_prompt: ''
+save_path: ./results/Humans/indian_ascetic
+text_prompt: []

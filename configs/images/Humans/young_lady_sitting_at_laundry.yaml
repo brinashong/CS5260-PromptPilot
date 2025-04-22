@@ -1,0 +1,4 @@
+input_path: dataset/Humans/young_lady_sitting_at_laundry.png
+negative_prompt: ''
+save_path: ./results/Humans/young_lady_sitting_at_laundry
+text_prompt: []

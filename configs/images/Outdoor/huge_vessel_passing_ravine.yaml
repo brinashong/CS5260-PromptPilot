@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/huge_vessel_passing_ravine.png
+negative_prompt: ''
+save_path: ./results/Outdoor/huge_vessel_passing_ravine
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Animals/rat_crawling_out_of_sack.png
+negative_prompt: ''
+save_path: ./results/Animals/rat_crawling_out_of_sack
+text_prompt: []

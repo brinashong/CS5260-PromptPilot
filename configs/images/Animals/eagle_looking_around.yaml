@@ -1,0 +1,4 @@
+input_path: dataset/Animals/eagle_looking_around.png
+negative_prompt: ''
+save_path: ./results/Animals/eagle_looking_around
+text_prompt: [eagle looking around and flying in the sky.]

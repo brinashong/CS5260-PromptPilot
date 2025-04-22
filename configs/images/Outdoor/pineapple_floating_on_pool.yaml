@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/pineapple_floating_on_pool.png
+negative_prompt: ''
+save_path: ./results/Outdoor/pineapple_floating_on_pool
+text_prompt: []

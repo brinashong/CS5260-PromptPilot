@@ -1,0 +1,4 @@
+input_path: dataset/Humans/fisherman_fishing_on_boat.png
+negative_prompt: ''
+save_path: ./results/Humans/fisherman_fishing_on_boat
+text_prompt: []

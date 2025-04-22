@@ -1,0 +1,4 @@
+input_path: dataset/Humans/marathon_runners_running.png
+negative_prompt: ''
+save_path: ./results/Humans/marathon_runners_running
+text_prompt: []

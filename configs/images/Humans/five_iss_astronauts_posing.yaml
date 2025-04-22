@@ -1,0 +1,4 @@
+input_path: dataset/Humans/five_iss_astronauts_posing.png
+negative_prompt: ''
+save_path: ./results/Humans/five_iss_astronauts_posing
+text_prompt: []

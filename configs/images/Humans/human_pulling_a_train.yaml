@@ -1,0 +1,4 @@
+input_path: dataset/Humans/human_pulling_a_train.png
+negative_prompt: ''
+save_path: ./results/Humans/human_pulling_a_train
+text_prompt: []

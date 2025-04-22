@@ -1,0 +1,4 @@
+input_path: dataset/Humans/engineer_inspecting_aircraft_wing.png
+negative_prompt: ''
+save_path: ./results/Humans/engineer_inspecting_aircraft_wing
+text_prompt: []

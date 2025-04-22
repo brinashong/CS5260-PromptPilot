@@ -1,0 +1,4 @@
+input_path: dataset/Animals/penguin_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/penguin_walking
+text_prompt: [A penguin walking on a rocky terrain, with its flippers swaying and its feet moving in a slow, deliberate motion, as if it is navigating through a challenging environment.]

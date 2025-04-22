@@ -1,0 +1,4 @@
+input_path: dataset/Humans/band_marching_down_road.png
+negative_prompt: ''
+save_path: ./results/Humans/band_marching_down_road
+text_prompt: []

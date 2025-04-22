@@ -1,0 +1,4 @@
+input_path: dataset/Animals/antler_running.png
+negative_prompt: ''
+save_path: ./results/Animals/antler_running
+text_prompt: []

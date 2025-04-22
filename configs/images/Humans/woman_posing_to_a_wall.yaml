@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_posing_to_a_wall.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_posing_to_a_wall
+text_prompt: []

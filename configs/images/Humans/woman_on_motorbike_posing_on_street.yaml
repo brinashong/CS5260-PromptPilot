@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_on_motorbike_posing_on_street.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_on_motorbike_posing_on_street
+text_prompt: []

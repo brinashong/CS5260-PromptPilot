@@ -1,0 +1,4 @@
+input_path: dataset/Animals/caterpillar_inching_on_grass.png
+negative_prompt: ''
+save_path: ./results/Animals/caterpillar_inching_on_grass
+text_prompt: []

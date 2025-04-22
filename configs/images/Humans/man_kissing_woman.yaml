@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_kissing_woman.png
+negative_prompt: ''
+save_path: ./results/Humans/man_kissing_woman
+text_prompt: []

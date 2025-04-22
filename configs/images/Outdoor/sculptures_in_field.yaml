@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/sculptures_in_field.png
+negative_prompt: ''
+save_path: ./results/Outdoor/sculptures_in_field
+text_prompt: []

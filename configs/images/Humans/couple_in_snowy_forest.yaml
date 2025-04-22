@@ -1,0 +1,4 @@
+input_path: dataset/Humans/couple_in_snowy_forest.png
+negative_prompt: ''
+save_path: ./results/Humans/couple_in_snowy_forest
+text_prompt: []

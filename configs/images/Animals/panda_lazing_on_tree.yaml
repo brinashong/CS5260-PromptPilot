@@ -1,0 +1,4 @@
+input_path: dataset/Animals/panda_lazing_on_tree.png
+negative_prompt: ''
+save_path: ./results/Animals/panda_lazing_on_tree
+text_prompt: [A panda lazily lounges on a tree branch, its fur glistening in the sunlight as it slowly stretches and yawns, showcasing its adorable and relaxed demeanor.]

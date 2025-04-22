@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_painting_on_shirt.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_painting_on_shirt
+text_prompt: []

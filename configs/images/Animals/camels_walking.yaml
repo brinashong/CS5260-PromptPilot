@@ -1,0 +1,4 @@
+input_path: dataset/Animals/camels_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/camels_walking
+text_prompt: []

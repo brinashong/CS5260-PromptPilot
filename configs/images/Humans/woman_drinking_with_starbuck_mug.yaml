@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_drinking_with_starbuck_mug.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_drinking_with_starbuck_mug
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Animals/fox_waving_tail.png
+negative_prompt: ''
+save_path: ./results/Animals/fox_waving_tail
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Animals/snake_slithering.png
+negative_prompt: ''
+save_path: ./results/Animals/snake_slithering
+text_prompt: []

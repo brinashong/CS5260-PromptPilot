@@ -1,0 +1,4 @@
+input_path: dataset/Animals/horse_in_wind.png
+negative_prompt: ''
+save_path: ./results/Animals/horse_in_wind
+text_prompt: []

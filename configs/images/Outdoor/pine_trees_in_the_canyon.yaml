@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/pine_trees_in_the_canyon.png
+negative_prompt: ''
+save_path: ./results/Outdoor/pine_trees_in_the_canyon
+text_prompt: []

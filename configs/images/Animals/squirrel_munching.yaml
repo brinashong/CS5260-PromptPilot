@@ -1,0 +1,4 @@
+input_path: dataset/Animals/squirrel_munching.png
+negative_prompt: ''
+save_path: ./results/Animals/squirrel_munching
+text_prompt: []

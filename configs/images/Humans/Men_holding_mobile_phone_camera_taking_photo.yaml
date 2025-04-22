@@ -1,0 +1,4 @@
+input_path: dataset/Humans/Men_holding_mobile_phone_camera_taking_photo.png
+negative_prompt: ''
+save_path: ./results/Humans/Men_holding_mobile_phone_camera_taking_photo
+text_prompt: []

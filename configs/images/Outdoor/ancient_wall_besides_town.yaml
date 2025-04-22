@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/ancient_wall_besides_town.png
+negative_prompt: ''
+save_path: ./results/Outdoor/ancient_wall_besides_town
+text_prompt: []

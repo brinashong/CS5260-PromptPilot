@@ -1,0 +1,4 @@
+input_path: dataset/Humans/athlete_aiming_air_riffle.png
+negative_prompt: ''
+save_path: ./results/Humans/athlete_aiming_air_riffle
+text_prompt: []

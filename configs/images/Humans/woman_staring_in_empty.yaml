@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_staring_in_empty.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_staring_in_empty
+text_prompt: []

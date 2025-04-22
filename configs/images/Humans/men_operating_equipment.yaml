@@ -1,0 +1,4 @@
+input_path: dataset/Humans/men_operating_equipment.png
+negative_prompt: ''
+save_path: ./results/Humans/men_operating_equipment
+text_prompt: []

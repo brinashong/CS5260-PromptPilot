@@ -1,0 +1,4 @@
+input_path: dataset/Animals/birds_taking_shelter.png
+negative_prompt: ''
+save_path: ./results/Animals/birds_taking_shelter
+text_prompt: [birds taking shelter from the rain.]

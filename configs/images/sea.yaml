@@ -1,5 +1,0 @@
-input_path: "dataset/beauty_of_the_sea.png"
-save_path: "./results/sea"
-
-text_prompt: [Capture the serene beauty of the ocean, with gentle waves rolling onto the shore and a vibrant sunset casting a warm glow on the water's surface.]
-negative_prompt: ""

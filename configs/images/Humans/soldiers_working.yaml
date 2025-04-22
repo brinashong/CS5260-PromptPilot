@@ -1,0 +1,4 @@
+input_path: dataset/Humans/soldiers_working.png
+negative_prompt: ''
+save_path: ./results/Humans/soldiers_working
+text_prompt: []

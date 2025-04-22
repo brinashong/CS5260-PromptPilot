@@ -1,0 +1,4 @@
+input_path: dataset/Animals/dog_on_watch.png
+negative_prompt: ''
+save_path: ./results/Animals/dog_on_watch
+text_prompt: []

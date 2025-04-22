@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/vessel_on_water_surrounded_by_gorges.png
+negative_prompt: ''
+save_path: ./results/Outdoor/vessel_on_water_surrounded_by_gorges
+text_prompt: []

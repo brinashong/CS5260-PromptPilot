@@ -1,0 +1,4 @@
+input_path: dataset/Animals/zebras_fighting.png
+negative_prompt: ''
+save_path: ./results/Animals/zebras_fighting
+text_prompt: []

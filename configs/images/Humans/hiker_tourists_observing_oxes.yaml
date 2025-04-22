@@ -1,0 +1,4 @@
+input_path: dataset/Humans/hiker_tourists_observing_oxes.png
+negative_prompt: ''
+save_path: ./results/Humans/hiker_tourists_observing_oxes
+text_prompt: []

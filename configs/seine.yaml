@@ -5,7 +5,7 @@ pretrained_model_path: "/home/brina/.cache/huggingface/hub/models--CompVis--stab
 # model config: 
 model: UNet
 num_frames: 16
-image_size: [240, 560]
+image_size: [320, 480] #[240, 560]
 
 # model speedup
 use_fp16: True

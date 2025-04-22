@@ -1,0 +1,4 @@
+input_path: dataset/Animals/seals_playing_in_water.png
+negative_prompt: ''
+save_path: ./results/Animals/seals_playing_in_water
+text_prompt: []

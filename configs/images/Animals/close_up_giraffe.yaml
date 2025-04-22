@@ -1,0 +1,4 @@
+input_path: dataset/Animals/close_up_giraffe.png
+negative_prompt: ''
+save_path: ./results/Animals/close_up_giraffe
+text_prompt: [close up giraffe head with blue sky background]

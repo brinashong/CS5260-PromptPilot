@@ -1,0 +1,4 @@
+input_path: dataset/Animals/baby_penguins_resting_under_mum.png
+negative_prompt: ''
+save_path: ./results/Animals/baby_penguins_resting_under_mum
+text_prompt: []

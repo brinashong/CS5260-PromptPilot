@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/boat_touring.png
+negative_prompt: ''
+save_path: ./results/Outdoor/boat_touring
+text_prompt: []

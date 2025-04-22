@@ -1,0 +1,4 @@
+input_path: dataset/Humans/people_celebrating_in_a_parade.png
+negative_prompt: ''
+save_path: ./results/Humans/people_celebrating_in_a_parade
+text_prompt: []

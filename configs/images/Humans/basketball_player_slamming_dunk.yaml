@@ -1,0 +1,4 @@
+input_path: dataset/Humans/basketball_player_slamming_dunk.png
+negative_prompt: ''
+save_path: ./results/Humans/basketball_player_slamming_dunk
+text_prompt: []

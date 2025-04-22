@@ -1,0 +1,4 @@
+input_path: dataset/Humans/athletes_running_up_slope.png
+negative_prompt: ''
+save_path: ./results/Humans/athletes_running_up_slope
+text_prompt: []

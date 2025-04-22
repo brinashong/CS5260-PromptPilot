@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/houses_besides_clear_lake.png
+negative_prompt: ''
+save_path: ./results/Outdoor/houses_besides_clear_lake
+text_prompt: []

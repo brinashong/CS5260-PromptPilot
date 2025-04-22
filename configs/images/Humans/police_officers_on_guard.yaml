@@ -1,0 +1,4 @@
+input_path: dataset/Humans/police_officers_on_guard.png
+negative_prompt: ''
+save_path: ./results/Humans/police_officers_on_guard
+text_prompt: []

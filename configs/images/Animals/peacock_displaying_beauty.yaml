@@ -1,0 +1,4 @@
+input_path: dataset/Animals/peacock_displaying_beauty.png
+negative_prompt: ''
+save_path: ./results/Animals/peacock_displaying_beauty
+text_prompt: [A peacock displaying its vibrant plumage and majestic beauty, showcasing its stunning feathers and graceful movements in a captivating and realistic video sequence.]

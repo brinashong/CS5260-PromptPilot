@@ -1,0 +1,4 @@
+input_path: dataset/Animals/zebras_walking_on_grass.png
+negative_prompt: ''
+save_path: ./results/Animals/zebras_walking_on_grass
+text_prompt: [A herd of zebras walking on a lush green grassy field, with the camera following them from a distance, capturing their natural movement and behavior.]

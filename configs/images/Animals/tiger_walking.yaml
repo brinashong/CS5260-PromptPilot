@@ -1,0 +1,4 @@
+input_path: dataset/Animals/tiger_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/tiger_walking
+text_prompt: []

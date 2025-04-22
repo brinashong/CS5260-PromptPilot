@@ -1,0 +1,4 @@
+input_path: dataset/Humans/celebration_on_stage.png
+negative_prompt: ''
+save_path: ./results/Humans/celebration_on_stage
+text_prompt: []

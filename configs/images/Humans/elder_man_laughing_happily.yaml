@@ -1,0 +1,4 @@
+input_path: dataset/Humans/elder_man_laughing_happily.png
+negative_prompt: ''
+save_path: ./results/Humans/elder_man_laughing_happily
+text_prompt: []

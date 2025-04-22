@@ -1,0 +1,4 @@
+input_path: dataset/Animals/herd_of_elephants_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/herd_of_elephants_walking
+text_prompt: [A herd of elephants walking in a line, with the largest elephant leading the way and the smallest elephant bringing up the rear, as they make their way across the savannah in search of food and water.]

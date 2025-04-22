@@ -1,0 +1,4 @@
+input_path: dataset/Animals/butterflies_on_flower.png
+negative_prompt: ''
+save_path: ./results/Animals/butterflies_on_flower
+text_prompt: []

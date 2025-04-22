@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/light_waves_at_sea.png
+negative_prompt: ''
+save_path: ./results/Outdoor/light_waves_at_sea
+text_prompt: []

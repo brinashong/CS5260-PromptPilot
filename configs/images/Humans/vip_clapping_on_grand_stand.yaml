@@ -1,0 +1,4 @@
+input_path: dataset/Humans/vip_clapping_on_grand_stand.png
+negative_prompt: ''
+save_path: ./results/Humans/vip_clapping_on_grand_stand
+text_prompt: []

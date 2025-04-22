@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/boats_floating_on_lake.png
+negative_prompt: ''
+save_path: ./results/Outdoor/boats_floating_on_lake
+text_prompt: []

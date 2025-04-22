@@ -1,0 +1,4 @@
+input_path: dataset/Humans/women_knitting.png
+negative_prompt: ''
+save_path: ./results/Humans/women_knitting
+text_prompt: []

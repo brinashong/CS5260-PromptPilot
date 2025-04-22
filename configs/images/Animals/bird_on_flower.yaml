@@ -1,0 +1,4 @@
+input_path: dataset/Animals/bird_on_flower.png
+negative_prompt: ''
+save_path: ./results/Animals/bird_on_flower
+text_prompt: [A sunbird perched on a yellow flower, with its beak dipping into the flower's center to gather nectar, as the flower sways gently in the breeze.]

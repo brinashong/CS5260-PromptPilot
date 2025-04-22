@@ -1,0 +1,4 @@
+input_path: dataset/Animals/group_of_penguins_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/group_of_penguins_walking
+text_prompt: []

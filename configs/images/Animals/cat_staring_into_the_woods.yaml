@@ -1,0 +1,4 @@
+input_path: dataset/Animals/cat_staring_into_the_woods.png
+negative_prompt: ''
+save_path: ./results/Animals/cat_staring_into_the_woods
+text_prompt: []

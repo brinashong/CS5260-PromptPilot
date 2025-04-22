@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/top_down_of_busy_road.png
+negative_prompt: ''
+save_path: ./results/Outdoor/top_down_of_busy_road
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/peaceful_valley_with_ice_mountain_at_background.png
+negative_prompt: ''
+save_path: ./results/Outdoor/peaceful_valley_with_ice_mountain_at_background
+text_prompt: []

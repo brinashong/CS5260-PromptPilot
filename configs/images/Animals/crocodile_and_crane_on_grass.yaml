@@ -1,0 +1,4 @@
+input_path: dataset/Animals/crocodile_and_crane_on_grass.png
+negative_prompt: ''
+save_path: ./results/Animals/crocodile_and_crane_on_grass
+text_prompt: []

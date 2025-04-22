@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_pushing_bicycle.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_pushing_bicycle
+text_prompt: []

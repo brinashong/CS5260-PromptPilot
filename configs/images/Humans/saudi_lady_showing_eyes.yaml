@@ -1,0 +1,4 @@
+input_path: dataset/Humans/saudi_lady_showing_eyes.png
+negative_prompt: ''
+save_path: ./results/Humans/saudi_lady_showing_eyes
+text_prompt: []

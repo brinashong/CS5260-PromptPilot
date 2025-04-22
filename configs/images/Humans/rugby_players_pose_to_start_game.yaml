@@ -1,0 +1,4 @@
+input_path: dataset/Humans/rugby_players_pose_to_start_game.png
+negative_prompt: ''
+save_path: ./results/Humans/rugby_players_pose_to_start_game
+text_prompt: []

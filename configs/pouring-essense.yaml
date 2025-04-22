@@ -1,0 +1,5 @@
+input_path: "dataset/essence_is_poured_from_a_bottle.png"
+save_path: "./results/essense"
+
+text_prompt: [A clear glass bottle with a narrow neck is tilted, and a golden liquid flows out of it, creating a smooth, continuous stream that falls onto a surface, with the liquid's movement and flow captured in a realistic and temporally logical manner.]
+negative_prompt: "The liquid is not flowing smoothly, the bottle is not clear, the surface is not visible, the movement is jerky, the flow is not continuous, the liquid is not golden, the bottle is not tilted, the neck is not narrow, the surface is not flat."

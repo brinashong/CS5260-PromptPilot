@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/boats_docked_at_pier.png
+negative_prompt: ''
+save_path: ./results/Outdoor/boats_docked_at_pier
+text_prompt: []

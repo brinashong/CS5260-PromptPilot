@@ -1,0 +1,4 @@
+input_path: dataset/Animals/duckling_under_the_wings_of_duck.png
+negative_prompt: ''
+save_path: ./results/Animals/duckling_under_the_wings_of_duck
+text_prompt: []

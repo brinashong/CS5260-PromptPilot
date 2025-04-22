@@ -1,0 +1,4 @@
+input_path: dataset/Animals/cat_looking_around.png
+negative_prompt: ''
+save_path: ./results/Animals/cat_looking_around
+text_prompt: [A cat looking around curiously, its head turning from side to side as it explores its surroundings.]

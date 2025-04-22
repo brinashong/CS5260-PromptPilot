@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/waterfall_with_rainbow.png
+negative_prompt: ''
+save_path: ./results/Outdoor/waterfall_with_rainbow
+text_prompt: []

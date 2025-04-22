@@ -1,0 +1,4 @@
+input_path: dataset/Humans/athletes_playing_football_game.png
+negative_prompt: ''
+save_path: ./results/Humans/athletes_playing_football_game
+text_prompt: []

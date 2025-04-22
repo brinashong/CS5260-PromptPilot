@@ -1,0 +1,4 @@
+input_path: dataset/Animals/horse_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/horse_walking
+text_prompt: [A brown horse with a white stripe on its nose and a red halter walking in a grassy field.]

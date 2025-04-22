@@ -1,0 +1,4 @@
+input_path: dataset/Animals/lion_playing_with_lioness.png
+negative_prompt: ''
+save_path: ./results/Animals/lion_playing_with_lioness
+text_prompt: []

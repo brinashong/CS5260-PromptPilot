@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_climbing_up_ice.png
+negative_prompt: ''
+save_path: ./results/Humans/man_climbing_up_ice
+text_prompt: []

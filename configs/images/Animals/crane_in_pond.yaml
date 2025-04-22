@@ -1,0 +1,4 @@
+input_path: dataset/Animals/crane_in_pond.png
+negative_prompt: ''
+save_path: ./results/Animals/crane_in_pond
+text_prompt: []

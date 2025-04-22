@@ -1,0 +1,4 @@
+input_path: dataset/Humans/mounted_officers_lining_up.png
+negative_prompt: ''
+save_path: ./results/Humans/mounted_officers_lining_up
+text_prompt: []

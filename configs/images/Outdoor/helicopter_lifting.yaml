@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/helicopter_lifting.png
+negative_prompt: ''
+save_path: ./results/Outdoor/helicopter_lifting
+text_prompt: []

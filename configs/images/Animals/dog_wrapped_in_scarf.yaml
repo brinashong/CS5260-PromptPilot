@@ -1,0 +1,4 @@
+input_path: dataset/Animals/dog_wrapped_in_scarf.png
+negative_prompt: ''
+save_path: ./results/Animals/dog_wrapped_in_scarf
+text_prompt: []

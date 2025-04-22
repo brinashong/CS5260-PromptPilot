@@ -1,0 +1,4 @@
+input_path: dataset/Humans/audiences_cheering_in_sport_stadium.png
+negative_prompt: ''
+save_path: ./results/Humans/audiences_cheering_in_sport_stadium
+text_prompt: []

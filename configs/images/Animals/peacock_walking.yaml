@@ -1,0 +1,4 @@
+input_path: dataset/Animals/peacock_walking.png
+negative_prompt: ''
+save_path: ./results/Animals/peacock_walking
+text_prompt: []

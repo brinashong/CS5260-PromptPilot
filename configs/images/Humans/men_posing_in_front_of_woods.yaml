@@ -1,0 +1,4 @@
+input_path: dataset/Humans/men_posing_in_front_of_woods.png
+negative_prompt: ''
+save_path: ./results/Humans/men_posing_in_front_of_woods
+text_prompt: []

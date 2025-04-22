@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_in_funny_spectacles_yall.png
+negative_prompt: ''
+save_path: ./results/Humans/man_in_funny_spectacles_yall
+text_prompt: []

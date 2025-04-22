@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/busy_town.png
+negative_prompt: ''
+save_path: ./results/Outdoor/busy_town
+text_prompt: []

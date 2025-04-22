@@ -1,0 +1,4 @@
+input_path: dataset/Humans/well_dressed_lady_on_boat_with_boatman.png
+negative_prompt: ''
+save_path: ./results/Humans/well_dressed_lady_on_boat_with_boatman
+text_prompt: []

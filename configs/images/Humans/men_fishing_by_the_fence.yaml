@@ -1,0 +1,4 @@
+input_path: dataset/Humans/men_fishing_by_the_fence.png
+negative_prompt: ''
+save_path: ./results/Humans/men_fishing_by_the_fence
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Animals/koala_sleeping_on_tree.png
+negative_prompt: ''
+save_path: ./results/Animals/koala_sleeping_on_tree
+text_prompt: []

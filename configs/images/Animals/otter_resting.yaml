@@ -1,0 +1,4 @@
+input_path: dataset/Animals/otter_resting.png
+negative_prompt: ''
+save_path: ./results/Animals/otter_resting
+text_prompt: []

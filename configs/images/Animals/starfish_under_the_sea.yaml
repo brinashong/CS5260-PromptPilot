@@ -1,0 +1,4 @@
+input_path: dataset/Animals/starfish_under_the_sea.png
+negative_prompt: ''
+save_path: ./results/Animals/starfish_under_the_sea
+text_prompt: []

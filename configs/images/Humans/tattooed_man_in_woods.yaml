@@ -1,0 +1,4 @@
+input_path: dataset/Humans/tattooed_man_in_woods.png
+negative_prompt: ''
+save_path: ./results/Humans/tattooed_man_in_woods
+text_prompt: []

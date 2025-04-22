@@ -1,0 +1,4 @@
+input_path: dataset/Animals/cats_looking_around.png
+negative_prompt: ''
+save_path: ./results/Animals/cats_looking_around
+text_prompt: [A group of cats looking around curiously, with their ears perked up and tails twitching, as they explore their surroundings.]

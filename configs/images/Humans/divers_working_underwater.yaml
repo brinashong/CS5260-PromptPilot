@@ -1,0 +1,4 @@
+input_path: dataset/Humans/divers_working_underwater.png
+negative_prompt: ''
+save_path: ./results/Humans/divers_working_underwater
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_playing_with_snakes.png
+negative_prompt: ''
+save_path: ./results/Humans/man_playing_with_snakes
+text_prompt: []

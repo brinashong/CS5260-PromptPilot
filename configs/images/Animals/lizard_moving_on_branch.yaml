@@ -1,0 +1,4 @@
+input_path: dataset/Animals/lizard_moving_on_branch.png
+negative_prompt: ''
+save_path: ./results/Animals/lizard_moving_on_branch
+text_prompt: [A lizard moving on a branch, its scales glistening in the sunlight as it searches for insects to eat.]

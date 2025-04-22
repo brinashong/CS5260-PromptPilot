@@ -1,0 +1,4 @@
+input_path: dataset/Humans/soldier_marching_with_full_gear.png
+negative_prompt: ''
+save_path: ./results/Humans/soldier_marching_with_full_gear
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Humans/female_sports_team_photoshot.png
+negative_prompt: ''
+save_path: ./results/Humans/female_sports_team_photoshot
+text_prompt: []

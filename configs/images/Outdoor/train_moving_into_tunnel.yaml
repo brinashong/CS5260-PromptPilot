@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/train_moving_into_tunnel.png
+negative_prompt: ''
+save_path: ./results/Outdoor/train_moving_into_tunnel
+text_prompt: []

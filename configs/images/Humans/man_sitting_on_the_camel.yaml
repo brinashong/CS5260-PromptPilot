@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_sitting_on_the_camel.png
+negative_prompt: ''
+save_path: ./results/Humans/man_sitting_on_the_camel
+text_prompt: []

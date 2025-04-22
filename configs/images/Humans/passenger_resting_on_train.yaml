@@ -1,0 +1,4 @@
+input_path: dataset/Humans/passenger_resting_on_train.png
+negative_prompt: ''
+save_path: ./results/Humans/passenger_resting_on_train
+text_prompt: []

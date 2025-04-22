@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_looking_back_from_inside_train.png
+negative_prompt: ''
+save_path: ./results/Humans/man_looking_back_from_inside_train
+text_prompt: []

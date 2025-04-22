@@ -1,0 +1,4 @@
+input_path: dataset/Humans/two_elderly_racers_beside_their_cars.png
+negative_prompt: ''
+save_path: ./results/Humans/two_elderly_racers_beside_their_cars
+text_prompt: []

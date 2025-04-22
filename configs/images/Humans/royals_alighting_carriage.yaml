@@ -1,0 +1,4 @@
+input_path: dataset/Humans/royals_alighting_carriage.png
+negative_prompt: ''
+save_path: ./results/Humans/royals_alighting_carriage
+text_prompt: []

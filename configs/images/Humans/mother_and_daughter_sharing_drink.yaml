@@ -1,0 +1,4 @@
+input_path: dataset/Humans/mother_and_daughter_sharing_drink.png
+negative_prompt: ''
+save_path: ./results/Humans/mother_and_daughter_sharing_drink
+text_prompt: []

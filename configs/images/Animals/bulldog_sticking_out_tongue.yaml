@@ -1,0 +1,4 @@
+input_path: dataset/Animals/bulldog_sticking_out_tongue.png
+negative_prompt: ''
+save_path: ./results/Animals/bulldog_sticking_out_tongue
+text_prompt: []

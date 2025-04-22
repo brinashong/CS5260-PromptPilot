@@ -1,0 +1,4 @@
+input_path: dataset/Animals/rooster_crowing.png
+negative_prompt: ''
+save_path: ./results/Animals/rooster_crowing
+text_prompt: [rooster crowing]

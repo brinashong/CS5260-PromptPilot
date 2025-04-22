@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/blue_sea_and_cliffs.png
+negative_prompt: ''
+save_path: ./results/Outdoor/blue_sea_and_cliffs
+text_prompt: []

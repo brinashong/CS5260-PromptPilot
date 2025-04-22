@@ -1,0 +1,4 @@
+input_path: dataset/Animals/raccoon_within_grass.png
+negative_prompt: ''
+save_path: ./results/Animals/raccoon_within_grass
+text_prompt: []

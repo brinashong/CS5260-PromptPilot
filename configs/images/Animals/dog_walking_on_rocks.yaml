@@ -1,0 +1,4 @@
+input_path: dataset/Animals/dog_walking_on_rocks.png
+negative_prompt: ''
+save_path: ./results/Animals/dog_walking_on_rocks
+text_prompt: []

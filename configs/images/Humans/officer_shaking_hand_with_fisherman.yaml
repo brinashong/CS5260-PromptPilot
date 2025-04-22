@@ -1,0 +1,4 @@
+input_path: dataset/Humans/officer_shaking_hand_with_fisherman.png
+negative_prompt: ''
+save_path: ./results/Humans/officer_shaking_hand_with_fisherman
+text_prompt: []

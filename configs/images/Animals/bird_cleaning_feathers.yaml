@@ -1,0 +1,4 @@
+input_path: dataset/Animals/bird_cleaning_feathers.png
+negative_prompt: ''
+save_path: ./results/Animals/bird_cleaning_feathers
+text_prompt: []

@@ -1,0 +1,4 @@
+input_path: dataset/Animals/whale_jumping_out_of_water.png
+negative_prompt: ''
+save_path: ./results/Animals/whale_jumping_out_of_water
+text_prompt: []

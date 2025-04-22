@@ -1,0 +1,4 @@
+input_path: dataset/Animals/lizard_walking_on_rock.png
+negative_prompt: ''
+save_path: ./results/Animals/lizard_walking_on_rock
+text_prompt: []

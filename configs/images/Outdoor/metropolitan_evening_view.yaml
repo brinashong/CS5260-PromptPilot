@@ -1,0 +1,4 @@
+input_path: dataset/Outdoor/metropolitan_evening_view.png
+negative_prompt: ''
+save_path: ./results/Outdoor/metropolitan_evening_view
+text_prompt: []

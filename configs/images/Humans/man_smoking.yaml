@@ -1,0 +1,4 @@
+input_path: dataset/Humans/man_smoking.png
+negative_prompt: ''
+save_path: ./results/Humans/man_smoking
+text_prompt: []

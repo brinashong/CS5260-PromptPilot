@@ -1,0 +1,4 @@
+input_path: dataset/Animals/swan_in_pond.png
+negative_prompt: ''
+save_path: ./results/Animals/swan_in_pond
+text_prompt: [A serene swan glides effortlessly across the pond's calm surface, its feathers glistening in the sunlight as it leaves a trail of gentle ripples behind it.]

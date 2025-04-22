@@ -1,0 +1,4 @@
+input_path: dataset/Humans/woman_practicing_yoga.png
+negative_prompt: ''
+save_path: ./results/Humans/woman_practicing_yoga
+text_prompt: []

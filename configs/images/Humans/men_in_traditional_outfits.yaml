@@ -1,0 +1,4 @@
+input_path: dataset/Humans/men_in_traditional_outfits.png
+negative_prompt: ''
+save_path: ./results/Humans/men_in_traditional_outfits
+text_prompt: []

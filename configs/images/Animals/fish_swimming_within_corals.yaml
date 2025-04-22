@@ -1,0 +1,4 @@
+input_path: dataset/Animals/fish_swimming_within_corals.png
+negative_prompt: ''
+save_path: ./results/Animals/fish_swimming_within_corals
+text_prompt: []

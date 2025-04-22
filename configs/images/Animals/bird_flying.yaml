@@ -1,0 +1,4 @@
+input_path: dataset/Animals/bird_flying.png
+negative_prompt: ''
+save_path: ./results/Animals/bird_flying
+text_prompt: []

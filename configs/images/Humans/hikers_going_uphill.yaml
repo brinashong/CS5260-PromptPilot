@@ -1,0 +1,4 @@
+input_path: dataset/Humans/hikers_going_uphill.png
+negative_prompt: ''
+save_path: ./results/Humans/hikers_going_uphill
+text_prompt: []

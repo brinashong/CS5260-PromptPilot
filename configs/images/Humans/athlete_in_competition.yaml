@@ -1,0 +1,4 @@
+input_path: dataset/Humans/athlete_in_competition.png
+negative_prompt: ''
+save_path: ./results/Humans/athlete_in_competition
+text_prompt: []

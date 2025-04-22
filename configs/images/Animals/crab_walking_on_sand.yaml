@@ -1,0 +1,4 @@
+input_path: dataset/Animals/crab_walking_on_sand.png
+negative_prompt: ''
+save_path: ./results/Animals/crab_walking_on_sand
+text_prompt: []

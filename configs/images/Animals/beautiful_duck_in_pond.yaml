@@ -1,0 +1,4 @@
+input_path: dataset/Animals/beautiful_duck_in_pond.png
+negative_prompt: ''
+save_path: ./results/Animals/beautiful_duck_in_pond
+text_prompt: []

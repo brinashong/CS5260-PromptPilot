@@ -1,0 +1,4 @@
+input_path: dataset/Animals/butterfly_on_water.png
+negative_prompt: ''
+save_path: ./results/Animals/butterfly_on_water
+text_prompt: [A butterfly on water, with its wings fluttering and creating ripples in the water.]

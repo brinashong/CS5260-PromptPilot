@@ -1,0 +1,4 @@
+input_path: dataset/Animals/fishes_coming_to_water_surface.png
+negative_prompt: ''
+save_path: ./results/Animals/fishes_coming_to_water_surface
+text_prompt: []
