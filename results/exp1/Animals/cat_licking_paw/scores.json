@@ -1,0 +1,8 @@
+{
+    "prompt": "cat licking paw",
+    "scores": {
+        "clip_tva_score": 0.2957024872303009,
+        "temporal_consistency": 13.439343134562174,
+        "dynamic_degree": 30.605920791625977
+    }
+}

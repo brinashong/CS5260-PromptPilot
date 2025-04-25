@@ -1,0 +1,8 @@
+{
+    "prompt": "herd of elephants walking",
+    "scores": {
+        "clip_tva_score": 0.31527069211006165,
+        "temporal_consistency": 6.586159706115723,
+        "dynamic_degree": 0.0468592643737793
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "prompt": "squirrel eating",
+    "scores": {
+        "clip_tva_score": 0.2919328808784485,
+        "temporal_consistency": 3.0963541666666665,
+        "dynamic_degree": 0.8150010704994202
+    }
+}
