@@ -20,6 +20,7 @@ st.set_page_config(page_title="Prompt Pilot", layout="centered")
 st.title("Prompt Pilot 🚀")
 st.subheader("Steering Your Prompts to High-Fidelity Videos")
 # tab1, tab2, tab3 = st.tabs(["📹 Reward Network Annotation", "Reward Annotation Training", "🤖 Video Agent 🤖 "])
+
 tab3, tab1, tab2 = st.tabs(["🎥 Video Generation", "🧑‍⚖️ Human Evaluation", "🧠 Reward Model Training"])
   
 if "agent" not in st.session_state:

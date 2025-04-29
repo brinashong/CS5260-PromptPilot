@@ -63,7 +63,7 @@ class PromptPilot:
             "dynamic_degree": 0}
 
         self.reward_model = SimpleNN()
-        self.reward_model.load_state_dict(torch.load('user_marks/reward_model_state_dict_NN.pth'))
+        self.reward_model.load_state_dict(torch.load('user_marks/model/reward_model_state_dict_NN.pth'))
         self.reward_model.eval()
 
     def extract_frames(self,video_path: str, num_frames: int = 4) -> List[Image.Image]:
@@ -258,7 +258,7 @@ class PromptPilot:
                             1. CLIP Alignment Score, which measures how well the generated video frames align with the given text prompt. If CLIP Alignment is low, clarify key objects, actions or settings to help visuals match the description more precisely.
                             2. Temporal Consistency Score, which assesses the smoothness and coherence between consecutive video frames. If Temporal Consistency is low, simplify actions or reduce ambiguity that might lead to jittery or incoherent motion.
                             3. Dynamic Degree Score quantifies the amount of motion in the video by comparing pixel changes across frames. If Dynamic Degree is too high for a static scene, remove unnecessary verbs or motion elements. If Dynamic Degree is too low for an action scene, enhance verbs or scene dynamics. For example, "a cat walking" → "a cat jumping between rooftops".
-                            4. Human Score is the aggregated score for overall quality. If Human Score is low, balance all factors with clearer, more focused language.
+                            4. Human Score is the aggregated score between 0-10 for overall quality. If Human Score is low, balance all factors with clearer, more focused language.
                         """ + \
                         self.USER_PROMPT + \
                         f"""
