@@ -28,6 +28,7 @@ def add_new_record(file_name, video_data, user_value, df_scores):
                                                                 video_data['scores']['dynamic_degree'],
                                                                 user_value]
         df_scores.to_csv(f"user_marks/user_{st.session_state.judge_name}_scores.csv", index=False)
+        st.session_state.confirmed_score = True
     
     
 # only filter out those folders which contain .mp4 and scores.json and sample some files     
@@ -121,11 +122,11 @@ def show():
                 if st.button("Confirm Your Score"):
                     file_name = current_video['video_file'].rsplit("/", 1)[1][:-4]
                     add_new_record(file_name, current_video['meta_data'], slider_value, st.session_state.df_scores)
-                    if st.session_state.video_index < len(st.session_state.video_files) - 1:
-                        st.session_state.video_index += 1
-                        msg = st.success("Saved the record!")
-                        time.sleep(1.5)
-                        msg.empty()   
+                    # if st.session_state.video_index < len(st.session_state.video_files) - 1:
+                    #     st.session_state.video_index += 1
+                    msg = st.success("Saved the record!")
+                    time.sleep(1.5)
+                    msg.empty()   
         else:
             st.warning("No meta data for this video.") 
         

@@ -8,7 +8,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import pickle
 from sklearn.preprocessing import StandardScaler 
-
+from sklearn.metrics import mean_squared_error
+import matplotlib.pyplot as plt
+import json
 
 # Define the simple neural network
 class SimpleNN(nn.Module):
@@ -24,9 +26,15 @@ class SimpleNN(nn.Module):
         x = self.fc3(x)               # No activation at output
         return x
 
-def train_NN(X, y, save_path):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+def train_NN(train_df, test_df, user_stats, model_saved_path):
+            
+    X_train = train_df[['clip_tva_score', 'temporal_consistency', 'dynamic_degree']]
+    # y_truth = reward_data[['final_score']]
+    y_train = train_df[['final_score']]
     
+    X_test = test_df[['clip_tva_score', 'temporal_consistency', 'dynamic_degree']]
+    y_test = test_df[['final_score']]
+        
     scaler = StandardScaler()
     scaler.fit(X_train)
     X_train_scaled = scaler.transform(X_train)
@@ -41,9 +49,10 @@ def train_NN(X, y, save_path):
     # Loss and optimizer
     criterion = nn.MSELoss() 
     optimizer = optim.Adam(model.parameters(), lr=0.01)
-
+    losses = []
+    
     # Training loop
-    epochs = 500
+    epochs = 200
     for epoch in range(epochs):
         model.train()
         
@@ -55,37 +64,60 @@ def train_NN(X, y, save_path):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        losses.append(loss.item())  # <-- save loss
 
         # Print every 50 epochs
         if (epoch+1) % 50 == 0:
             print(f'Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}')
             
-        print("finish training ...")
-        model_path = save_path + '/reward_model_state_dict_NN.pth'
-        torch.save(model.state_dict(), model_path)
+    print("finish training ...")
+    model_saved_path = model_saved_path + '/reward_model_state_dict_NN.pth'
+    torch.save(model.state_dict(), model_saved_path)
         
-        # return model
-        model.eval()
-        prediction = model(X_test_tensor)
+    # return model
+    model.eval()
+    prediction = model(X_test_tensor)
         
-        test_result = X_test.copy()
-        test_result['y_real'] = y_test_tensor
-        test_result['y_pred'] = prediction.detach().numpy() 
-        print(test_result)    
-        return model_path, test_result
-
-
-def train_LR(X, y, save_path):
-    model = LinearRegression()
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    test_result = X_test.copy()
+    test_result['y_real'] = y_test_tensor
     
+    y_pred_transformed = []
+    for index, pred in enumerate(prediction.detach().numpy()):
+        user_id = test_df.iloc[index]["user_id"]
+        user_min = user_stats[user_id][0]
+        user_std_or_range = user_stats[user_id][1]
+        y_pred_transformed.append(user_min + pred * user_std_or_range)
+        
+    test_result['y_pred'] = y_pred_transformed 
+    
+    # Plot loss curve
+    plt.plot(losses)
+    plt.title('Training Loss Curve')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.grid()
+    plt.show()
+    
+    return model_saved_path, test_result, mean_squared_error(y_test, y_pred_transformed)
+
+
+def train_LR(train_df, test_df, user_stats, save_path):
+    
+    
+    X_train = train_df[['clip_tva_score', 'temporal_consistency', 'dynamic_degree']]
+    y_train = train_df[['final_score']]
+    
+    X_test = test_df[['clip_tva_score', 'temporal_consistency', 'dynamic_degree']]
+    y_test = test_df[['final_score']]
+        
     scaler = StandardScaler()
     scaler.fit(X_train)
     X_train_scaled = scaler.transform(X_train)
     X_test_scaled = scaler.transform(X_test)
-
+    
+    model = LinearRegression()
     model.fit(X_train_scaled, y_train)
-    y_pred = model.predict(X_test_scaled)
+    prediction = model.predict(X_test_scaled)
     
     model_path = save_path + '/reward_model_LR.pkl'
     # save
@@ -94,26 +126,52 @@ def train_LR(X, y, save_path):
         
     test_result = X_test.copy()
     test_result['y_real'] = y_test
-    test_result['y_pred'] = y_pred
+    
+    y_pred_transformed = []
+    for index, pred in enumerate(prediction):
+        user_id = test_df.iloc[index]["user_id"]
+        user_min = user_stats[user_id][0]
+        user_std_or_range = user_stats[user_id][1]
+        y_pred_transformed.append(user_min + pred * user_std_or_range)
+        
+    test_result['y_pred'] = y_pred_transformed 
     print(test_result)
-    return model_path, test_result
+    
+    return model_path, test_result, mean_squared_error(y_test, prediction)
     
 
+def draw_chart(test_df):
+    fig, ax = plt.subplots()
+    
+    ax.scatter(range(1, test_df.shape[0]+1), test_df['y_real'], color='blue', alpha=0.7, label="Y Real")
+    ax.scatter(range(1, test_df.shape[0]+1), test_df['y_pred'], color='red', alpha=0.7, label="Y Pred")
+    ax.set_title('True Value & Prediction')
+    ax.set_xlabel('True Value')
+    ax.set_ylabel('Prediction')
+    plt.legend()
+    plt.show()
+
+    
+    
 def train_workflow():
     
     cur_dir = Path(sys.argv[0])
     base_dir = str(cur_dir.parent.parent.resolve())
-    score_dir = base_dir + "/user_marks"
+    model_path = base_dir + "/user_marks/model"
     
-    if os.path.exists(score_dir + "/reward_df.csv"):
-        reward_data = pd.read_csv(score_dir + "/reward_df.csv")
+    if os.path.exists(model_path + "/reward_df.csv") and os.path.exists(model_path + "/reward_test_df.csv"):
+        train_df = pd.read_csv(model_path + "/reward_df.csv")
+        test_df = pd.read_csv(model_path + "/reward_test_df.csv")
         
-        X= reward_data[['clip_tva_score', 'temporal_consistency', 'dynamic_degree']]
-        y = reward_data[['final_score']]
+        with open(model_path + "/user_stats.json", "r") as f:
+            user_stats = json.load(f)
         
-        # model_path, test_result = train_NN(X, y, score_dir)
-        model_path, test_result = train_LR(X, y, score_dir)
-        return model_path, test_result
+        # choose either NN or linear regression
+        model_path, test_result, mse = train_NN(train_df, test_df, user_stats, model_path)
+        # model_path, test_result, mse = train_LR(train_df, test_df, user_stats, model_path)
+        
+        # draw_chart(test_result)
+        return model_path, test_result, mse 
     else:
         print("directory does not exist.")
         
