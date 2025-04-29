@@ -1,0 +1,14 @@
+{
+    "entry_0_average": {
+        "clip_tva_score": 0.30047630417076027,
+        "temporal_consistency": 6.979722957606569,
+        "dynamic_degree": 18.739475156797916,
+        "count": 264
+    },
+    "entry_1_average": {
+        "clip_tva_score": 0.3024021890349017,
+        "temporal_consistency": 7.485140667614825,
+        "dynamic_degree": 41.24566381334879,
+        "count": 167
+    }
+}
