@@ -41,8 +41,8 @@ def show(agent):
         
         if user_prompt:
             msg = st.info("Generating video ...")
-            video_path = inference(agent, img, user_prompt)
+            best_video, best_prompt, clip_score, tc_score, dd_score = inference(agent, img, user_prompt)
             msg.success("Video generated! ▶️ ")
             
-            if video_path != "":
-                st.video(open(video_path, 'rb').read())
+            if best_video != "":
+                st.video(open(best_video, 'rb').read())

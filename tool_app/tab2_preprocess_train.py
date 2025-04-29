@@ -54,53 +54,53 @@ def get_score_files(SCORE_DIR):
     return users, users_test
 
 
-# def normalize_user_scores(scores_df):
-#     normalized_scores = []
-#     normalized_user_stats = {}
-#     for user_id, group in scores_df.groupby('user_id'):
-#         if len(group) >= 30:
-#             # Z-score
-#             mean = group['score'].mean()
-#             std = group['score'].std()
-#             normalized_user_stats[user_id] = (mean, std)
-#             group['norm_score'] = (group['score'] - mean) / std
-#         else:
-#             # Min-max
-#             min_score = group['score'].min()
-#             max_score = group['score'].max()
-#             group['norm_score'] = (group['score'] - min_score) / (max_score - min_score + 1e-8)
-#             normalized_user_stats[user_id] = (min_score, max_score - min_score + 1e-8)
-#         normalized_scores.append(group)
-#     return pd.concat(normalized_scores, axis=0, ignore_index=True), normalized_user_stats
-
-def normalize_user_scores(scores_df, target_range=(0, 10), min_samples=30):
+def normalize_user_scores(scores_df):
     normalized_scores = []
     normalized_user_stats = {}
-
     for user_id, group in scores_df.groupby('user_id'):
-        if len(group) < min_samples:
-            # Apply Min-Max normalization for users with few samples
-            min_score = group['score'].min()
-            max_score = group['score'].max()
-            normalized_user_stats[user_id] = (min_score, max_score - min_score + 1e-8)
-            group['norm_score'] = (group['score'] - min_score) / (max_score - min_score + 1e-8)
-        else:
-            # Apply Z-score normalization for users with sufficient data
+        if len(group) >= 30:
+            # Z-score
             mean = group['score'].mean()
             std = group['score'].std()
             normalized_user_stats[user_id] = (mean, std)
-            group['norm_score'] = (group['score'] - mean) / (std + 1e-8)
-
-        # Scale to target range (0-10)
-        min_norm, max_norm = group['norm_score'].min(), group['norm_score'].max()
-        scale_factor = (target_range[1] - target_range[0]) / (max_norm - min_norm + 1e-8)
-        shift_value = target_range[0] - min_norm * scale_factor
-        group['norm_score'] = group['norm_score'] * scale_factor + shift_value
-        
+            group['norm_score'] = (group['score'] - mean) / std
+        else:
+            # Min-max
+            min_score = group['score'].min()
+            max_score = group['score'].max()
+            group['norm_score'] = (group['score'] - min_score) / (max_score - min_score + 1e-8)
+            normalized_user_stats[user_id] = (min_score, max_score - min_score + 1e-8)
         normalized_scores.append(group)
-
-    # Combine normalized groups back into a single DataFrame
     return pd.concat(normalized_scores, axis=0, ignore_index=True), normalized_user_stats
+
+# def normalize_user_scores(scores_df, target_range=(0, 10), min_samples=30):
+#     normalized_scores = []
+#     normalized_user_stats = {}
+
+#     for user_id, group in scores_df.groupby('user_id'):
+#         if len(group) < min_samples:
+#             # Apply Min-Max normalization for users with few samples
+#             min_score = group['score'].min()
+#             max_score = group['score'].max()
+#             normalized_user_stats[user_id] = (min_score, max_score - min_score + 1e-8)
+#             group['norm_score'] = (group['score'] - min_score) / (max_score - min_score + 1e-8)
+#         else:
+#             # Apply Z-score normalization for users with sufficient data
+#             mean = group['score'].mean()
+#             std = group['score'].std()
+#             normalized_user_stats[user_id] = (mean, std)
+#             group['norm_score'] = (group['score'] - mean) / (std + 1e-8)
+
+#         # Scale to target range (0-10)
+#         min_norm, max_norm = group['norm_score'].min(), group['norm_score'].max()
+#         scale_factor = (target_range[1] - target_range[0]) / (max_norm - min_norm + 1e-8)
+#         shift_value = target_range[0] - min_norm * scale_factor
+#         group['norm_score'] = group['norm_score'] * scale_factor + shift_value
+        
+#         normalized_scores.append(group)
+
+#     # Combine normalized groups back into a single DataFrame
+#     return pd.concat(normalized_scores, axis=0, ignore_index=True), normalized_user_stats
 
 def preprocessing(users:dict):
     all_user_scores = []
