@@ -1,7 +1,8 @@
 import streamlit as st
 import os
 import pandas as pd
-import tool_app.reward_model as reward_model
+# import tool_app.reward_model as reward_model
+import reward_model
 import matplotlib.pyplot as plt
 import random, json
                 
@@ -105,10 +106,10 @@ def cleanup_callback():
     
 
 def draw_chart(test_df):
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5, 3))
     
-    ax.scatter(range(1, test_df.shape[0]+1), test_df['y_real'], color='blue', alpha=0.7, label="Y Real")
-    ax.scatter(range(1, test_df.shape[0]+1), test_df['y_pred'], color='red', alpha=0.7, label="Y Pred")
+    ax.scatter(range(1, test_df.shape[0]+1), test_df['y_real'], color='blue', alpha=0.7, label="Y Real", s=5)
+    ax.scatter(range(1, test_df.shape[0]+1), test_df['y_pred'], color='red', alpha=0.7, label="Y Pred", s=5)
     ax.set_title('True Value & Prediction')
     ax.set_xlabel('Data Point')
     ax.set_ylabel('User Score')
@@ -145,13 +146,13 @@ def show():
             st.markdown("")
             st.subheader("🎯 Pre-processed Training Dataset (with normalized final_score):")
             st.dataframe(data_df, key="processed_result")
-            st.success(f"The preprocessed data has been saved to {saved_path}. \nWould you like to train the model now?")
+            st.success(f"The preprocessed data has been saved to {saved_path}. \n\nWould you like to train the model now?")
             
             if st.button("Yes, please!"):
                 msg = st.info("training is in progress...")
                 model_path, test_df, mse = reward_model.train_workflow()
-                msg.info(f"training is done! The model is saved to {model_path}")
-                msg.info(f"model test mse: {mse}")
+                msg.info(f"Training complete! The model is saved to {model_path}")
+                msg.info(f"Model Test MSE: {mse}")
                 
                 test_df = test_df.sort_values(by='y_real')
                 st.dataframe(test_df, key="test_result")

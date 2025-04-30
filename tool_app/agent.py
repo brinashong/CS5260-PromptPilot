@@ -19,7 +19,9 @@ import argparse
 from pathlib import Path
 import io
 
-from reward_model import SimpleNN
+# from reward_model import SimpleNN
+import pickle
+import pandas as pd
 
 # Load CLIP
 clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32").to("cuda")
@@ -62,9 +64,12 @@ class PromptPilot:
             "temporal_consistency": 0,
             "dynamic_degree": 0}
 
-        self.reward_model = SimpleNN()
-        self.reward_model.load_state_dict(torch.load('user_marks/model/reward_model_state_dict_NN.pth'))
-        self.reward_model.eval()
+        # self.reward_model = SimpleNN()
+        # self.reward_model.load_state_dict(torch.load('user_marks/model/reward_model_state_dict_NN.pth'))
+        # self.reward_model.eval()
+        
+        with open('user_marks/model/reward_model_RF.pkl', 'rb') as f:
+            self.reward_model = pickle.load(f)
 
     def extract_frames(self,video_path: str, num_frames: int = 4) -> List[Image.Image]:
         cap = cv2.VideoCapture(video_path)
@@ -298,9 +303,15 @@ class PromptPilot:
             scores = self.evaluate_video(frames, refined_prompt)
             
             # get aggregated score from reward model
-            X = np.array(list(scores.values())[:3], dtype=np.float32)
-            X = torch.tensor(X, dtype=torch.float32)
-            scores["human_score"] = self.reward_model(X).detach().item()
+            features = ['clip_tva_score', 'temporal_consistency', 'dynamic_degree']
+            # Create a DataFrame with only the required features
+            X = pd.DataFrame([{k: scores[k] for k in features}])
+            prediction = self.reward_model.predict(X)
+            scores["human_score"] = float(np.clip(5 + prediction * 3.0, 0, 10).item())
+            
+            # X = np.array(list(scores.values())[:3], dtype=np.float32)
+            # X = torch.tensor(X, dtype=torch.float32)
+            # scores["human_score"] = self.reward_model(X).detach().item()
             
             clip_score = scores["clip_tva_score"]
             tc_score = scores["temporal_consistency"]

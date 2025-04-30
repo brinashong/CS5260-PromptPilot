@@ -87,7 +87,9 @@ def train_NN(train_df, test_df, user_stats, model_saved_path):
         user_id = test_df.iloc[index]["user_id"]
         user_min = user_stats[user_id][0]
         user_std_or_range = user_stats[user_id][1]
-        y_pred_transformed.append(user_min + pred * user_std_or_range)
+        # y_pred_transformed.append(user_min + pred * user_std_or_range)
+        clipped_value = min(max(user_min + pred * user_std_or_range, 0), 10)
+        y_pred_transformed.append(clipped_value)
         
     test_result['y_pred'] = y_pred_transformed 
     return model_saved_path, test_result, mean_squared_error(y_test, y_pred_transformed)

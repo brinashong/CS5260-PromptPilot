@@ -5,7 +5,7 @@ import random, os
 import pandas as pd
 
 # def inference(agent, image, user_prompt):
-def inference(image, user_prompt):
+def inference(agent, image, user_prompt):
     # best_video, best_prompt, clip_score, tc_score, dd_score
     return agent.infer(image, user_prompt)
 
@@ -37,7 +37,7 @@ def on_file_upload():
     st.session_state.user_input = "" 
         
 
-def show():
+def show(agent):
     st.subheader("🖼️ Upload Image and Add Prompt")
     
     # some session_state data to record the status of the page to avoid data lost when refreshing the page
@@ -60,15 +60,15 @@ def show():
     uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"], on_change=on_file_upload)
 
     if uploaded_file:
-        st.image(uploaded_file, caption="Image uploaded!", use_column_width=True)
+        st.image(uploaded_file, caption="Image uploaded!", use_container_width=True)
         img = Image.open(uploaded_file).convert("RGB")
 
         user_prompt = st.text_input("Enter a prompt for the video you'd like to generate: ", key="user_input")
+        clip_score = tc_score = dd_score = None
         if user_prompt:
-            if st.session_state.prompt_text != user_prompt:
+            if st.session_state.pre_prompt_text != user_prompt:
                 st.session_state.pre_prompt_text = user_prompt
                 msg = st.info("Generating video ...")
-                best_video = inference(img, user_prompt)
                 
                 best_video, best_prompt, clip_score, tc_score, dd_score = inference(agent, img, user_prompt)
                 if best_video != "":
@@ -78,10 +78,10 @@ def show():
                 
             if st.session_state.current_video != "":
                 st.video(open(st.session_state.current_video, 'rb').read())
-                st.markdown(f"🚀 AI generated prompt: {st.session_state.best_prompt}")
+                st.markdown(f"🚀 LLM refined prompt: {st.session_state.best_prompt}")
     
             if random.randint(0, 2) == 0 or st.session_state.show_score_area:
-                st.subheader("✨ We’d appreciate it if you could rate the video quality.")
+                st.subheader("✨ We appreciate if you could rate the video quality.")
                 st.session_state.show_score_area = True
                 slider_value = st.slider("**0 - poorest quality, 10 - highest quality**", min_value=0.0, max_value=10.0, step=0.1, key="user_value")
                 
@@ -90,7 +90,7 @@ def show():
                         st.session_state.df_scores = get_score_df()
                     add_new_record(clip_score, tc_score, dd_score, slider_value, st.session_state.df_scores)
 
-                    msg2 = st.success("Thank you for your scoring!")
+                    msg2 = st.success("Thank you for your rating!")
                     time.sleep(1.5)
                     msg2.empty()  
                     st.session_state.show_score_area = False 
