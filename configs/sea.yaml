@@ -1,5 +1,0 @@
-input_path: "dataset/beauty_of_the_sea.png"
-save_path: "./results/sea"
-
-text_prompt: [A serene and majestic ocean scene, with gentle waves and a clear blue sky, evoking a sense of tranquility and wonder.]
-negative_prompt: "Avoid depicting any signs of pollution, overfishing, or human impact on the ocean's ecosystem, and refrain from showing any dramatic or turbulent weather conditions."
