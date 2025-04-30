@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import pandas as pd
-import reward_model
+import tool_app.reward_model as reward_model
 import matplotlib.pyplot as plt
 import random, json
                 
@@ -18,31 +18,16 @@ def get_score_files(SCORE_DIR):
             df = pd.read_csv(item_path)
             df['user_id'] = user_name
             
-            # # Indices of rows to remove
-            # if df.shape[0] <= 5:
-            #     indices_to_remove = random.sample(range(0, df.shape[0]), 1)
-            # else:    
-            #     indices_to_remove = random.sample(range(0, df.shape[0]), 3)
+            # handle some very small dataset
+            if df.shape[0] <= 2:
+                continue
+            elif df.shape[0] <= 5:
+                test_indices = random.sample(range(0, df.shape[0]), 1)
+            else:    
+                test_indices = random.sample(range(0, df.shape[0]), int(len(df) * 0.2))
             
-            # df_test = df.iloc[indices_to_remove]
-            # df = df.drop(indices_to_remove)
-
-            # Calculate the number of test samples based on the percentage
-            test_sample_size = int(len(df) * 0.2)
-            
-            # Randomly select indices for the test set
-            test_indices = random.sample(range(0, len(df)), test_sample_size)
-            train_indices = list(set(range(0, len(df))) - set(test_indices))
-
-            # Create the train and test datasets
-            df_train = df.iloc[train_indices]
             df_test = df.iloc[test_indices]
-            
-            # print("df:")
-            # print(df)
-            # print("df_test:")
-            # print(df_test)
-            # print("")
+            df_train = df.drop(test_indices)
             
             if user_name not in users:
                 users[user_name] = [df_train]
@@ -73,34 +58,6 @@ def normalize_user_scores(scores_df):
         normalized_scores.append(group)
     return pd.concat(normalized_scores, axis=0, ignore_index=True), normalized_user_stats
 
-# def normalize_user_scores(scores_df, target_range=(0, 10), min_samples=30):
-#     normalized_scores = []
-#     normalized_user_stats = {}
-
-#     for user_id, group in scores_df.groupby('user_id'):
-#         if len(group) < min_samples:
-#             # Apply Min-Max normalization for users with few samples
-#             min_score = group['score'].min()
-#             max_score = group['score'].max()
-#             normalized_user_stats[user_id] = (min_score, max_score - min_score + 1e-8)
-#             group['norm_score'] = (group['score'] - min_score) / (max_score - min_score + 1e-8)
-#         else:
-#             # Apply Z-score normalization for users with sufficient data
-#             mean = group['score'].mean()
-#             std = group['score'].std()
-#             normalized_user_stats[user_id] = (mean, std)
-#             group['norm_score'] = (group['score'] - mean) / (std + 1e-8)
-
-#         # Scale to target range (0-10)
-#         min_norm, max_norm = group['norm_score'].min(), group['norm_score'].max()
-#         scale_factor = (target_range[1] - target_range[0]) / (max_norm - min_norm + 1e-8)
-#         shift_value = target_range[0] - min_norm * scale_factor
-#         group['norm_score'] = group['norm_score'] * scale_factor + shift_value
-        
-#         normalized_scores.append(group)
-
-#     # Combine normalized groups back into a single DataFrame
-#     return pd.concat(normalized_scores, axis=0, ignore_index=True), normalized_user_stats
 
 def preprocessing(users:dict):
     all_user_scores = []
@@ -110,26 +67,23 @@ def preprocessing(users:dict):
         else:
             user_scores_df = user_scores[0]
         
-        # get average score for repeated image for single user and then add user_id series
-        # averaged_user_scores = user_scores_df.groupby(['file_name', 'clip_tva_score', 'temporal_consistency', 'dynamic_degree']).agg(avg_score=('user_value', 'mean')).reset_index().rename(columns={"avg_score": "score"})
-        averaged_user_scores = user_scores_df.groupby(['clip_tva_score', 'temporal_consistency', 'dynamic_degree']).agg(avg_score=('user_value', 'mean')).reset_index().rename(columns={"avg_score": "score"})
+        # get average score for one single image (since one user might score the same file multiple times) for single user and then add user_id series
+        averaged_user_scores = user_scores_df.groupby(['file_name', 'clip_tva_score', 'temporal_consistency', 'dynamic_degree']).agg(avg_score=('user_value', 'mean')).reset_index().rename(columns={"avg_score": "score"})
         averaged_user_scores['user_id'] = user
         all_user_scores.append(averaged_user_scores)
         all_scores = pd.concat(all_user_scores, axis=0, ignore_index=True)
 
-    
     # get normalized score for a single user and then concatenate all users' normalized scores into one dataframe
     normalized_scores_df, normalized_user_stats = normalize_user_scores(all_scores)
     final_image_scores_df = (
     normalized_scores_df
-    # .groupby(['file_name', 'clip_tva_score', 'temporal_consistency', 'dynamic_degree'])['norm_score']
-    .groupby(['clip_tva_score', 'temporal_consistency', 'dynamic_degree'])['norm_score']
-    .median()  # or .mean(), depending on your needs
+    .groupby(['file_name', 'clip_tva_score', 'temporal_consistency', 'dynamic_degree'])['norm_score']
+    .mean() 
     .reset_index()
     .rename(columns={"norm_score": "final_score"})
     )
-    
     return final_image_scores_df, normalized_user_stats
+
 
 def preprocessing_test_df(users_test:dict):
     all_user_scores = []
@@ -146,9 +100,6 @@ def preprocessing_test_df(users_test:dict):
     
 
 def cleanup_callback():
-    # if "processed_result" in st.session_state:
-    #     st.session_state.processed_result.empty()
-    
     if "test_result" in st.session_state:
         st.session_state.test_result.empty()
     
@@ -159,16 +110,14 @@ def draw_chart(test_df):
     ax.scatter(range(1, test_df.shape[0]+1), test_df['y_real'], color='blue', alpha=0.7, label="Y Real")
     ax.scatter(range(1, test_df.shape[0]+1), test_df['y_pred'], color='red', alpha=0.7, label="Y Pred")
     ax.set_title('True Value & Prediction')
-    ax.set_xlabel('True Value')
-    ax.set_ylabel('Prediction')
+    ax.set_xlabel('Data Point')
+    ax.set_ylabel('User Score')
     plt.legend()
-    # Display in Streamlit
     st.pyplot(fig, clear_figure=True, use_container_width=True)
     
     
 def show():
     USER_SCORE_DIR = st.text_input("Input user score directory: ", key="user_score_dir", on_change=cleanup_callback())
-    
     
     if USER_SCORE_DIR != "" and os.path.isdir(USER_SCORE_DIR):
         users, users_test = get_score_files(USER_SCORE_DIR) 

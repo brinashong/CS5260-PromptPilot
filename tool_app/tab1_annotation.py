@@ -1,11 +1,9 @@
 import streamlit as st
 import json
-import cv2
-import os, sys, glob
+import os, glob
 import pandas as pd
 import time, random
 
-# /Users/evansun/Documents/Claudia/CS5260_Neural_network_and_deep_learning/CS5260-PromptPilot/PromptPilot Dataset/exp1
 
 JUDGE_SAMPLES = 50
 
@@ -44,12 +42,19 @@ def get_video_files(VIDEO_DIR):
                 video_data = json.load(f)
             
             if len(matching_files) == 1:
-                video_files.append({"video_file": matching_files[0], 
+                if isinstance(video_data, list):
+                    # for exp3, even there is only one .mp4, the json file follows different format from that in exp1
+                    video_files.append({"video_file": matching_files[0], 
+                                    "meta_data": video_data[0]})
+                else:
+                    video_files.append({"video_file": matching_files[0], 
                                     "meta_data": video_data})
             else:
+
                 for i, file in enumerate(sorted_files):
                     video_files.append({"video_file": file, 
                                         "meta_data": video_data[i]})
+
                 
     sample_nums = min(len(video_files), JUDGE_SAMPLES)
     random.seed(time.time())
@@ -100,10 +105,6 @@ def show():
 
         # show video meta data (original prompt and metrics)
         if current_video['meta_data'] is not None:
-            # st.subheader(f"**🙎🏻 User prompt:**")
-            # st.markdown(f"""
-            # <div style="padding: 0px; border-radius: 5px; background-color: white; color: blue;">
-            # {current_video['meta_data']['prompt']}</div>""", unsafe_allow_html=True)
             st.subheader("⭐ Rate the quality of this video")
             slider_value = st.slider("Drag to select a value:", min_value=0.0, max_value=10.0, step=0.1)
         
@@ -114,26 +115,13 @@ def show():
                     add_new_record(file_name, current_video['meta_data'], slider_value, st.session_state.df_scores)
                     msg = st.success("Score saved!")
                     time.sleep(1.5)
-                    msg.empty()
-        
-            # # append the score to dataframe
-            # if st.button("Confirm Score"):
-            #     file_name = current_video['video_file'].rsplit("/", 1)[1][:-4]
-            #     add_new_record(file_name, current_video['meta_data'], slider_value, st.session_state.df_scores)
-            #     # if st.session_state.video_index < len(st.session_state.video_files) - 1:
-            #     #     st.session_state.video_index += 1
-            #     msg = st.success("Score saved!")
-            #     time.sleep(1.5)
-            #     msg.empty()   
+                    msg.empty() 
             
             left_half, right_half = st.columns([1, 1])
 
             with left_half:
                 st.subheader(f"🙎🏻 User prompt")
                 st.markdown(f"{current_video['meta_data']['prompt']}")
-                # st.markdown(f"""
-                # <div style="padding: 0px; border-radius: 5px; background-color: white; color: blue;">
-                # {current_video['meta_data']['prompt']}</div>""", unsafe_allow_html=True)
             
             with right_half:
                 st.subheader("📝 Evaluation Metrics")
@@ -141,21 +129,6 @@ def show():
                 st.markdown(f"**Temporal Consistency:**  {str(current_video['meta_data']['scores']['temporal_consistency'])}")
                 st.markdown(f"**Dynamic Degree:**  {str(current_video['meta_data']['scores']['dynamic_degree'])}")
         
-            # with right_half:
-            #     # show slider bar for user to choose a value
-            #     # st.subheader("🎚️ Please mark your score for the video quality")
-            #     st.subheader("⭐ Rate the quality of this video")
-            #     slider_value = st.slider("Drag to select a value:", min_value=0.0, max_value=10.0, step=0.1)
-            
-            #     # append the score to dataframe
-            #     if st.button("Confirm Score"):
-            #         file_name = current_video['video_file'].rsplit("/", 1)[1][:-4]
-            #         add_new_record(file_name, current_video['meta_data'], slider_value, st.session_state.df_scores)
-            #         # if st.session_state.video_index < len(st.session_state.video_files) - 1:
-            #         #     st.session_state.video_index += 1
-            #         msg = st.success("Score saved!")
-            #         time.sleep(1.5)
-            #         msg.empty()   
         else:
             st.warning("No meta data for this video.") 
         
