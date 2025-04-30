@@ -120,8 +120,7 @@ def train_random_forest(train_df, test_df, user_stats, save_path):
         y_pred_transformed.append(user_min + pred * user_std_or_range)
         
     test_result['y_pred'] = y_pred_transformed 
-    print(test_result)
-    
+
     return model_path, test_result, mean_squared_error(y_test, y_pred_transformed)
     
 
@@ -155,7 +154,6 @@ def train_LR(train_df, test_df, user_stats, save_path):
         y_pred_transformed.append(user_min + pred * user_std_or_range)
         
     test_result['y_pred'] = y_pred_transformed 
-    print(test_result)
     
     return model_path, test_result, mean_squared_error(y_test, y_pred_transformed)
     
