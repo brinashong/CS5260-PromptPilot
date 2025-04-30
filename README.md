@@ -1,35 +1,52 @@
 # CS5260-PromptPilot
 
-## Dataset
+## Dependencies Installation
+Install all necessary dependencies by running the following command.
+```
+conda create -n promptpilot python==3.9.16
+conda activate promptpilot
+pip install -r requirements.txt
+```
 
-<!-- [Download UCF-101 dataset](https://www.crcv.ucf.edu/data/UCF101/UCF101.rar) -->
+Note that you will also need to download the necessary models required to generate videos using SEINE. Instructions can be found on their GitHub repository: [SEINE](https://github.com/Vchitect/SEINE)
 
-[Download filtered DIV2K dataset](https://drive.google.com/drive/folders/1q01buDiVBR-d9cPTFvBsktBlbrfWEwUv?usp=drive_link)
+## Dataset and Experimental Results
 
-## How to use the Tool
+The curated DIV2K dataset and experimental results are shared on Google Drive: [link](https://drive.google.com/drive/folders/1q01buDiVBR-d9cPTFvBsktBlbrfWEwUv?usp=sharing)
+
+## Prompt Pilot User Interface
 
 ### Run
+Assuming that `streamlit` is installed, run the following command to launch the interface in a browser.
+```
+streamlit run tool_app/app.py
+```
 
-`pip install streamlit` <br>
-Assuming your current working path is the project folder, in terminal window, type `streamlit run tool_app/app.py`
+### Functionalities
 
-### Functionality
+Tab `Video Generation`
 
-Tab `Reward Network Annotation` <br>
+![Video Generation](images/vidgen.png)
 
-1. input the absolute path of any dataset path you want to annotate <br>
-2. input your nickname <br>
+1. Drag and drop or browse files to upload an image.
+2. Input a user prompt.
+3. Wait patiently for video generation. Video will display once it is ready.
 
-Tab `Reward Annotation Training` <br>
+Tab `Human Evaluation` <br>
 
-1. put all annotators' csv files in one folder (by default, `user_marks`, but you could use any other names). Different annotator is put in separate files.
-2. input the foler path, and press Enter.
-3. pre-processed result will show in the table.
-4. click the model training button.
-5. after finish training and saving the model, the test result will show in the table.
+![Human Evaluation](images/eval.png)
+1. Input the absolute path to the video directory containing results in the required format. <br>
+2. Input your nickname. <br>
+3. System loads a sequence of videos along with their generation prompts and displays them for evaluation. 
+4. Rate the quality of each video on a scale from 0 to 10 and click "Confirm Score".
 
-Tab `🤖 Video Agent 🤖`
+Tab `Reward Model Training` <br>
 
-1. click the button to upload an image.
-2. type user prompt
-3. wait for a while, the inference video will show below (currently mock data)
+![Reward Model Training](images/reward.png)
+
+1. Put all annotators' csv files in one folder (by default, `user_marks`, but you could use any other names). Different annotator is put in separate files.
+2. Input the absolute path to the folder and press Enter.
+3. Pre-processed training data will be displayed as a table.
+4. Click the button to begin model training.
+5. Once training completes, the model is saved and the test results will be shown.
+
