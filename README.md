@@ -11,8 +11,11 @@ pip install -r requirements.txt
 Note that you will also need to download the necessary models required to generate videos using SEINE. Instructions can be found on their GitHub repository: [SEINE](https://github.com/Vchitect/SEINE)
 
 ## Dataset and Experimental Results
-
 The curated DIV2K dataset and experimental results are shared on Google Drive: [link](https://drive.google.com/drive/folders/1q01buDiVBR-d9cPTFvBsktBlbrfWEwUv?usp=sharing)
+
+## Presentation
+A simple presentation video to introduce the project can be viewed on Google Drive: [link](https://drive.google.com/file/d/1fPJNmZ2WdffMvzpG_CoUHwRzMtvVdwbi/view?usp=sharing)
+The deck of slides used in the presentation is also available on Google Drive: [link](https://docs.google.com/presentation/d/1zcDSBQbMacOg1r15r6nd2kSdKV_5D0NcU0X7Dcd-RkI/edit?usp=sharing)
 
 ## Prompt Pilot User Interface
 
